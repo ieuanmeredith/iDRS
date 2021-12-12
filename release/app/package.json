@@ -1,0 +1,20 @@
+{
+  "name": "idrs",
+  "version": "1.0.0",
+  "description": "A telemetry based DRS helper for iRacing.",
+  "main": "./dist/main/main.js",
+  "author": {
+    "name": "Ieuan Meredith",
+    "url": "https://github.com/ieuanmeredith"
+  },
+  "scripts": {
+    "electron-rebuild": "node -r ts-node/register ../../.erb/scripts/electron-rebuild.js",
+    "link-modules": "node -r ts-node/register ../../.erb/scripts/link-modules.ts",
+    "postinstall": "npm run electron-rebuild && npm run link-modules"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "node-irsdk-2021": "0.0.1",
+    "sound-play": "^1.1.0"
+  }
+}
