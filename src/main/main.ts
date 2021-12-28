@@ -112,6 +112,7 @@ const createWindow = async () => {
   mainWindow.webContents.on('did-finish-load', () => {
     const longPath = getAssetPath(`beep-02.mp3`);
     const shortPath = getAssetPath(`beep-07.mp3`);
+    const doublePath = getAssetPath(`beep-24.mp3`);
 
     console.log(longPath);
 
@@ -149,6 +150,11 @@ const createWindow = async () => {
 
         case DrsStatus.On:
           if (localLast === DrsStatus.Enabled) {
+            sound.play(shortPath);
+          }
+          break;
+        case DrsStatus.Approaching:
+          if (localLast === DrsStatus['Not Available']) {
             sound.play(shortPath);
           }
           break;
